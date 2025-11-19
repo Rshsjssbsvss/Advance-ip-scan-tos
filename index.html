@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Design Template</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000000; /* সম্পূর্ণ কালো ব্যাকগ্রাউন্ড */
+            color: #FFFFFF; /* সাদা টেক্সট */
+            margin: 0;
+            padding: 20px;
+            text-align: left;
+            line-height: 1.6;
+        }
+        .certificate-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: none;
+            padding: 0;
+            box-shadow: none;
+            background-color: #000000;
+            border-radius: 0;
+        }
+        h1 {
+            color: #FFFFFF;
+            text-align: left;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            padding: 0;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #00CCFF;
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .image-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .small-image {
+            width: 150px; /* উপরের ছবির আকার */
+            height: auto;
+            border-radius: 5px;
+        }
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: #AAAAAA;
+        }
+        /* কন্টাক্ট ইনফো স্টাইল */
+        .contact-info {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #111111;
+            border-left: 4px solid #00CCFF;
+            font-size: 0.95em;
+        }
+        .contact-info strong {
+            color: #FFFFFF;
+            margin-right: 5px;
+        }
+        .expertise-list {
+            list-style-type: '⚡';
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .expertise-list li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+        }
+        .description-text {
+            margin-top: 20px;
+            font-size: 1em;
+            text-align: justify;
+        }
+        .signature-section {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .signature-block {
+            width: 30%;
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px dashed #666;
+            font-size: 0.85em;
+        }
+        .signature-block strong {
+            display: block;
+            margin-top: 5px;
+            color: #00CCFF;
+        }
+        /* একেবারে নিচের ছবির জন্য স্টাইল */
+        .bottom-image-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .bottom-image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #00CCFF; /* হাইলাইট করার জন্য বর্ডার */
+            border-radius: 10px;
+        }
+        .bottom-image-heading {
+            text-align: center;
+            margin-top: 30px;
+            color: #00CCFF;
+            font-size: 1.1em;
+        }
+
+        /* নতুন যোগ করা স্টাইল */
+        .verification-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #00CCFF;
+        }
+        .verification-section h3 {
+            color: #00CCFF;
+            margin-bottom: 15px;
+        }
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            background-color: #FFFFFF;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            color: #000000;
+            border-radius: 5px;
+            /* এখানে একটি আসল QR কোডের ছবি ব্যবহার করা যেতে পারে */
+            background-image: url('https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://example.com/verify/21567928'); /* উদাহরণ QR কোড */
+            background-size: cover;
+        }
+        .verify-link {
+            color: #00CCFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .verify-link:hover {
+            text-decoration: underline;
+        }
+        .action-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .action-buttons button {
+            background-color: #00CCFF;
+            color: #000000;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .action-buttons button:hover {
+            background-color: #0099CC;
+        }
+        .current-time-display {
+            text-align: right;
+            font-size: 0.8em;
+            color: #AAAAAA;
+            margin-top: 20px;
+        }
+        @media print {
+            .action-buttons, .verification-section, .current-time-display, .bottom-image-heading, .bottom-image-container {
+                display: none; /* প্রিন্ট করার সময় এই সেকশনগুলো লুকানো থাকবে */
+            }
+            body {
+                background-color: #FFFFFF;
+                color: #000000;
+                padding: 0;
+            }
+            .certificate-container {
+                box-shadow: none;
+                border: none;
+                background-color: #FFFFFF;
+            }
+            h1, h2, .contact-info, .expertise-list, .description-text, .signature-section {
+                color: #000000 !important; /* প্রিন্ট করার সময় কালো টেক্সট */
+            }
+            .contact-info {
+                background-color: #F0F0F0;
+                border-left-color: #666;
+            }
+            .signature-block strong {
+                color: #000000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="certificate-container">
+        <h1>CYBER SECURITY ANALYST</h1> 
+        <h1 style="font-size: 1.8em; color: #AAAAAA; border: none; margin-top: 0;">Difference Cyber Security Expert</h1>
+        
+        <div class="image-container">
+            <img src="FB_IMG_1762874078432.jpg" alt="Syber Security Expert" class="small-image">
+        </div>
+
+        <div class="info-header">
+            <div>
+                <strong>Date of Issue:</strong><br>
+                January 01, 2026
+            </div>
+            <div>
+                <strong>Certificate ID:</strong><br>
+                21567928
+            </div>
+        </div>
+        
+        <h2 style="margin-top: 0; text-align: center;">Profile Name: <span style="color: #FFFFFF;">RANA-H4X</span></h2>
+        
+        <div class="contact-info">
+            <p style="margin: 0 0 5px 0;"><strong>Agent ID:</strong> 21567928</p>
+            <p style="margin: 0 0 5px 0;"><strong>Mobile:</strong> 01316870938 / 01346986622</p>
+            <p style="margin: 0;"><strong>Gmail:</strong> targetboy24@gmail.com</p>
+        </div>
+
+
+        <h2>SPECIAL RECOGNITION AND AREAS OF EXPERTISE:</h2>
+        <p>
+            This certificate certifies that **Md RANA** has successfully completed the <strong>"Supreme Penetration Testing Architect Program"</strong> at the Global Cyber Defense Initiative (GCDI) and the Institute of Future Cyber Threat Analysis and Response (IFCTAR). This elite program is designed to address the world's most complex and advanced cyber security challenges.
+        </p>
+
+        <p class="description-text">
+            Md RANA has demonstrated state-of-the-art knowledge and expert skills in the following key areas:
+        </p>
+
+        <ul class="expertise-list">
+            <li><strong>Multi-Domain Red Teaming Operations:</strong> Planning, executing, and reporting complex coordinated cyber-attacks utilizing physical, digital, and social engineering vectors.</li>
+            <li><strong>Nation-State Attack Simulation:</strong> Emulating the Tactics, Techniques, and Procedures (TTPs) of Advanced Persistent Threat (APT) groups to test defense resilience.</li>
+            <li><strong>Firmware & Hardware Vulnerability Analysis:</strong> Identifying and exploiting security flaws in low-level firmware, embedded systems, and IoT devices.</li>
+            <li><strong>Advanced Memory Forensics & Malware Reverse Engineering:</strong> Analyzing complex malware families and uncovering their defense-evasion mechanisms.</li>
+            <li><strong>AI/ML System Security Assessment:</strong> Testing Machine Learning models against data poisoning, model inversion, and adversarial attacks.</li>
+            <li><strong>Quantum-Resistant Cryptography Analysis:</strong> Evaluating the efficacy and future security risks of Post-Quantum Cryptographic algorithms.</li>
+            <li><strong>Communications Satellite & Fiber Optical Tap Detection:</strong> Designing advanced Intrusion Detection Systems to identify unauthorized access in cryptographic communication channels.</li>
+            <li><strong>Critical Infrastructure Protection (CIP):</strong> Identifying and mitigating vulnerabilities in SCADA/ICS systems and national power grids.</li>
+            <li><strong>Legal & Ethical Hacking Frameworks:</strong> Deep understanding of international cyber law, geopolitical implications, and the ethics of cyber warfare.</li>
+            <li><strong>Cyber Threat Intelligence (CTI) Architecture Design:</strong> Designing and deploying sophisticated CTI platforms for proactive threat hunting and incident response.</li>
+        </ul>
+
+        <p class="description-text" style="color: #00CCFF; font-weight: bold;">
+            Md RANA is a proven cyber security architect providing essential skills, strategic knowledge, and leadership to protect the global digital ecosystem from future threats. His expertise demonstrates the capability not only to uncover vulnerabilities but also to build robust and sustainable defense systems against them.
+        </p>
+
+        <h2>Signatures of Executive Authority:</h2>
+        <div class="signature-section">
+            
+            <div class="signature-block">
+                <br>
+                <strong>Prof. Dr. Victor Kane</strong>
+                Chief Executive Officer (CEO), GCDI
+            </div>
+            
+            <div class="signature-block">
+                <br>
+                <strong>Architect Sophia Patel</strong>
+                Chief Technical Officer (CTO), IFCTAR
+            </div>
+            
+            <div class="signature-block">
+                <br>
+                <strong>Prof. Dr. Fahmida Begum</strong>
+                Program Director, CSPTA, IFCTAR
+            </div>
+            
+        </div>
+
+        <!-- নতুন যোগ করা সেকশন: QR কোড এবং ভেরিফিকেশন -->
+        <div class="verification-section">
+            <h3>সার্টিফিকেট যাচাই করুন</h3>
+            <div class="qr-code" title="Scan to Verify Certificate"></div>
+            <p>এই সার্টিফিকেটটি যাচাই করতে QR কোড স্ক্যান করুন অথবা নিচের লিঙ্কে ক্লিক করুন:</p>
+            <a href="https://example.com/verify/21567928" target="_blank" class="verify-link">সার্টিফিকেট যাচাই করুন (ID: 21567928)</a>
+        </div>
+
+        <!-- নতুন যোগ করা সেকশন: অ্যাকশন বাটন -->
+        <div class="action-buttons">
+            <button onclick="window.print()">সার্টিফিকেট প্রিন্ট করুন</button>
+        </div>
+
+        <h3 class="bottom-image-heading">Official Certificate Design Preview (সার্টিফিকেট ডিজাইনের নমুনা)</h3>
+        <div class="bottom-image-container">
+            <img src="Gemini_Generated_Image_ylj3o7ylj3o7ylj3.jpg" alt="Official Certificate Design">
+        </div>
+
+        <!-- বর্তমান সময় দেখানোর জন্য -->
+        <div class="current-time-display">
+            বর্তমান সময়: <span id="currentTime"></span>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
