@@ -15,7 +15,6 @@
 
  chmod +x *.py
  
- pip install -r requirements.txt
 
 # Tools Run CMD.......
  
