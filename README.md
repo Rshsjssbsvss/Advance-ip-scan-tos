@@ -3,20 +3,20 @@
 
  pkg update -y && pkg upgrade -y
 
+ pkg install python  -y
 
  pkg install git -y
 
- pkg install python -y
+  pkg install python-pip
 
  git clone https://github.com/Rshsjssbsvss/Advance-ip-scan-tos.git
  
- cd ROC-X01
+ cd Advance-ip-scan-tos
 
  chmod +x *.py
  
  pip install -r requirements.txt
 
-@tools Run. c.m.d.............
-                 .............
+# Tools Run CMD.......
  
  python Rana_NMAP.py
